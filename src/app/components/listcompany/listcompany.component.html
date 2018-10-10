@@ -1,0 +1,52 @@
+<mat-drawer-container autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    Contenido del menú
+  </mat-drawer>
+  <button type="button" mat-button (click)="drawer.toggle()">
+    Menú
+  </button>
+
+  <div class="container-fluid">
+
+    <h1>Listado de Empresas</h1>
+
+    <br>
+    <div class="row">
+      <div class="col-sm-10">
+        <mat-form-field>
+          <input matInput type="text" class="Search-input form-control mb-2 mr-sm-2" [(ngModel)]="searchText"
+            placeholder="Buscar" (keyup)="applyFilter()" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <mat-table class="mat-elevation-z8" [dataSource]='dataSource' matSort>
+
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+        <mat-cell *matCellDef="let c" (click)="goToCompany(c)" class="clickable-row">{{c.id}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</mat-header-cell>
+        <mat-cell class="name-cell" *matCellDef="let c" (click)="goToCompany(c)" class="clickable-row">{{c.name}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="logo">
+        <mat-header-cell *matHeaderCellDef>Logo</mat-header-cell>
+
+        <mat-cell class="logo-cell" *matCellDef="let c" (click)="goToCompany(c)" class="clickable-row">
+          <img mat-card-image src={{c.logo}} width="100px">
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns" (click)="onRowClicked(row)"></mat-row>
+    </mat-table>
+    <mat-paginator #paginator [pageSize]="3" [pageSizeOptions]="[3, 5, 10]"></mat-paginator>
+    <br>
+    <div class="col-sm-2">
+      <button type="button" class="btn btn-primary" (click)="new()"><i class="fas fa-plus"></i> Agregar </button>
+    </div>
+  </div>
+</mat-drawer-container>

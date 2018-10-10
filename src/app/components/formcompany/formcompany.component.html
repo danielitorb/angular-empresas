@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-8">
+      <div class="card">
+        <div class="card-body">
+          <mat-card-title>Compañia</mat-card-title>
+          <div *ngIf="company">
+            <mat-form-field>
+              <input matInput [(ngModel)]="company.id" placeholder="ID">
+            </mat-form-field><br>
+            <mat-form-field>
+              <input matInput [(ngModel)]="company.name" placeholder="Nombre">
+            </mat-form-field><br>
+            <mat-form-field>
+              <input matInput [(ngModel)]="company.mission" placeholder="Mision">
+            </mat-form-field><br>
+            <mat-form-field>
+              <input matInput [(ngModel)]="company.vission" placeholder="Vision">
+            </mat-form-field><br>
+            <mat-form-field>
+              <input matInput [(ngModel)]="company.logo" placeholder="Logo">
+            </mat-form-field><br>
+            <mat-form-field>
+              <input matInput [(ngModel)]="company.address" placeholder="Direcciòn">
+            </mat-form-field><br>
+            <mat-form-field>
+              <input matInput [(ngModel)]="company.phone" placeholder="Telefono">
+            </mat-form-field><br>
+            <mat-form-field>
+              <input matInput [(ngModel)]="company.latitude" placeholder="Latitud">
+            </mat-form-field><br>
+            <mat-form-field>
+              <input matInput [(ngModel)]="company.longitude" placeholder="Longitud">
+            </mat-form-field><br>
+            <button (click)="goBack()" class="btn btn-secondary">Regresar</button>
+            <button (click)="save()" class="btn btn-primary">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

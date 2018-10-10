@@ -1,0 +1,11 @@
+<ul>
+  <li *ngFor="let e of empresas">
+    <a routerLink="/empresa/{{e.id}}">
+      <span class="badge">{{e.id}}</span>
+      {{e.name}}<br>
+    </a>
+    <img src={{e.logo}} width='100px' />
+    <button class="delete" title="Delete product"
+      (click)="delete(c.id)">x</button>
+  </li>
+</ul>
